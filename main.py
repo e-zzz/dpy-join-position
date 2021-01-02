@@ -1,10 +1,6 @@
 async def get_join_position(ctx, user_id):
     """
-    Gets the join position from the given user id
-    Returns 0 for the person who owns/created the server
-    if you don't want that, just add 1 to the output number
-    you can use the following return statement to do so:
-    return (int(position_list.index(str(user_id)) + 1 )
+    Gets the join position based on the given user id
     """
     seq = " ".join(["{}-{}".format(x.joined_at.strftime("%Y-%m-%d"), x.id) for x in ctx.message.guild.members]) #all join dates in a single string
     sl = sorted(seq.split(), key=lambda x: tuple(map(int, x[0:].split("-"))), reverse=False) #sort them
